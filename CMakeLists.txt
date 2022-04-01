@@ -16,4 +16,4 @@ target_include_directories(MissionControl PRIVATE include)
 
 # Add target link libraries for executable.
 set_target_properties(MissionControl PROPERTIES LINK_FLAGS "-framework Metal -framework QuartzCore")
-target_link_libraries(MissionControl PRIVATE libglass ntcore wpimath wpiutil wpigui imgui)
+target_link_libraries(MissionControl PRIVATE libglassnt libglass ntcore wpimath wpiutil wpigui imgui)

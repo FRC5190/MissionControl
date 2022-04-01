@@ -1,0 +1,32 @@
+cppHeaderFileInclude {
+  \.h$
+  \.inc$
+  \.inl$
+}
+
+cppSrcFileInclude {
+  \.cpp$
+  \.cc$
+}
+
+includeOtherLibs {
+  ^glass
+  ^GLFW
+  ^cscore
+  ^Eigen
+  ^fmt/
+  ^frc
+  ^glass
+  ^imgui
+  ^implot\.h$
+  ^libssh
+  ^ntcore
+  ^networktables
+  ^portable-file-dialogs
+  ^rev/
+  ^units
+  ^uv
+  ^wpi/
+  ^wpigui
+  ^wpimath/
+}

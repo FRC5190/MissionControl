@@ -1,14 +1,19 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 #pragma once
 
-#include <networktables/NetworkTable.h>
-#include <glass/View.h>
 #include <memory>
-#include "networktables/TableEntryListener.h"
+
+#include <glass/View.h>
+#include <networktables/NetworkTable.h>
+#include <networktables/TableEntryListener.h>
 
 namespace frc5190 {
 class Shooter : public glass::View {
  public:
-  Shooter(std::shared_ptr<nt::NetworkTable> nt) : nt_{nt} {}
+  explicit Shooter(std::shared_ptr<nt::NetworkTable> nt) : nt_{nt} {}
   void Display() override;
 
  private:

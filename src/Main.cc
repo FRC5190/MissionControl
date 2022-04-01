@@ -1,21 +1,28 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 #include <algorithm>
 #include <iostream>
 #include <memory>
-#include "glass/Window.h"
-#include "imgui.h"
-#include "networktables/NetworkTableEntry.h"
-#include "networktables/TableEntryListener.h"
-#include <glass/Context.h>
-#include <glass/WindowManager.h>
-#include <glass/MainMenuBar.h>
-#include <wpigui.h>
-#include <glass/Storage.h>
-#include "networktables/NetworkTableInstance.h"
 
 #include <Drivetrain.h>
-#include <Turret.h>
-#include <Shooter.h>
 #include <Hood.h>
+#include <Shooter.h>
+#include <Superstructure.h>
+#include <Turret.h>
+#include <glass/Context.h>
+#include <glass/MainMenuBar.h>
+#include <glass/Storage.h>
+#include <glass/Window.h>
+#include <glass/WindowManager.h>
+#include <imgui.h>
+#include <networktables/NetworkTableEntry.h>
+#include <networktables/NetworkTableInstance.h>
+#include <networktables/TableEntryListener.h>
+#include <wpigui.h>
+#include "Intake.h"
+#include "Climber.h"
 
 using namespace frc5190;
 
@@ -28,6 +35,8 @@ static glass::Window* turret_;
 static glass::Window* shooter_;
 static glass::Window* hood_;
 static glass::Window* intake_;
+static glass::Window* climber_;
+static glass::Window* superstructure_;
 
 static glass::MainMenuBar main_menu_bar_;
 
@@ -59,6 +68,12 @@ void Application(std::string_view save_dir) {
                                         std::make_unique<Shooter>(robot_table));
   hood_ =
       window_manager_->AddWindow("Hood", std::make_unique<Hood>(robot_table));
+  intake_ = window_manager_->AddWindow("Intake",
+                                       std::make_unique<Intake>(robot_table));
+  climber_ = window_manager_->AddWindow("Climber",
+                                        std::make_unique<Climber>(robot_table));
+  superstructure_ = window_manager_->AddWindow(
+      "Superstructure", std::make_unique<Superstructure>(robot_table));
 
   // Add menu bar.
   gui::AddLateExecute([] {

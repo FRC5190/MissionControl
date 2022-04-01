@@ -1,3 +1,7 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 #pragma once
 
 #include <string_view>
@@ -52,6 +56,10 @@ static constexpr std::string_view kHoodVelocity = "hood/velocity";
 static constexpr std::string_view kHoodSupplyCurrent = "hood/supply_current";
 
 // Intake
+static constexpr std::string_view kIntakeLowerSensor = "intake/lower_sensor";
+static constexpr std::string_view kIntakeUpperSensor = "intake/upper_sensor";
+static constexpr std::string_view kIntakeNextCargoColor =
+    "intake/next_cargo_color";
 static constexpr std::string_view kIntakeSupplyCurrent =
     "intake/intake_supply_current";
 static constexpr std::string_view kBridgeLSupplyCurrent =
@@ -63,6 +71,14 @@ static constexpr std::string_view kFeederFloorSupplyCurrent =
 static constexpr std::string_view kFeederWallSupplyCurrent =
     "intake/feeder_wall_supply_current";
 
+// Climber
+static constexpr std::string_view kClimberLPosition = "climber/l_position";
+static constexpr std::string_view kClimberRPosition = "climber/r_position";
+static constexpr std::string_view kClimberLSupplyCurrent =
+    "climber/l_supply_current";
+static constexpr std::string_view kClimberRSupplyCurrent =
+    "climber/r_supply_current";
+
 // Superstructure
 static constexpr std::string_view kTurretPositionSetpoint =
     "superstructure/turret_position_setpoint";
@@ -72,5 +88,15 @@ static constexpr std::string_view kShooterSpeedSetpoint =
     "superstructure/shooter_speed_setpoint";
 static constexpr std::string_view kHoodAngleSetpoint =
     "superstructure/hood_angle_setpoint";
+static constexpr std::string_view kSuperstructureTurretState =
+    "superstructure/turret_state";
+static constexpr std::string_view kSuperstructureShooterState =
+    "superstructure/shooter_state";
+static constexpr std::string_view kSuperstructureHoodState =
+    "superstructure/hood_state";
+static constexpr std::string_view kSuperstructureFeederState =
+    "superstructure/feeder_state";
+static constexpr std::string_view kSuperstructureIntakeState =
+    "superstructure/intake_state";
 }  // namespace keys
 }  // namespace frc5190
