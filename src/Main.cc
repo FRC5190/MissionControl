@@ -6,11 +6,6 @@
 #include <iostream>
 #include <memory>
 
-#include <Drivetrain.h>
-#include <Hood.h>
-#include <Shooter.h>
-#include <Superstructure.h>
-#include <Turret.h>
 #include <glass/Context.h>
 #include <glass/MainMenuBar.h>
 #include <glass/Storage.h>
@@ -21,8 +16,14 @@
 #include <networktables/NetworkTableInstance.h>
 #include <networktables/TableEntryListener.h>
 #include <wpigui.h>
-#include "Intake.h"
+
 #include "Climber.h"
+#include "Drivetrain.h"
+#include "Hood.h"
+#include "Intake.h"
+#include "Shooter.h"
+#include "Superstructure.h"
+#include "Turret.h"
 
 using namespace frc5190;
 
