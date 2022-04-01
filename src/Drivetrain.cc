@@ -4,8 +4,11 @@
 
 #include "Drivetrain.h"
 
+#include <cstdlib>
+
 #include <imgui.h>
 
+#include "Constants.h"
 #include "Keys.h"
 
 using namespace frc5190;
@@ -38,4 +41,17 @@ void Drivetrain::Display() {
   ImGui::Text("LF Current: %3.1f A", lf_current);
   ImGui::Text("RL Current: %3.1f A", rl_current);
   ImGui::Text("RR Current: %3.1f A", rf_current);
+
+  // Check for current discrepancies.
+  static ImVec4 warning_color{1.0f, 0.5f, 0.0f, 1.0f};
+
+  if (std::abs(ll_current - lf_current) >
+      constants::kGearboxCurrentDiscrepancyThreshold) {
+    ImGui::TextColored(warning_color, "L Gearbox Current Discrepancy!");
+  }
+
+  if (std::abs(rl_current - rf_current) >
+      constants::kGearboxCurrentDiscrepancyThreshold) {
+    ImGui::TextColored(warning_color, "R Gearbox Current Discrepancy!");
+  }
 }

@@ -4,9 +4,12 @@
 
 #include "Shooter.h"
 
+#include <cstdlib>
+
 #include <imgui.h>
 #include <wpi/numbers>
 
+#include "Constants.h"
 #include "Keys.h"
 
 using namespace frc5190;
@@ -29,4 +32,11 @@ void Shooter::Display() {
 
   ImGui::Text("L Current: %3.1f A", l_current);
   ImGui::Text("F Current: %3.1f A", f_current);
+
+  // Check for current discrepancy.
+  static ImVec4 warning_color{1.0f, 0.5f, 0.0f, 1.0f};
+  if (std::abs(l_current - f_current) >
+      constants::kGearboxCurrentDiscrepancyThreshold) {
+    ImGui::TextColored(warning_color, "Gearbox Current Discrepancy!");
+  }
 }

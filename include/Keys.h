@@ -52,7 +52,6 @@ static constexpr std::string_view kShooterFSupplyCurrent =
 
 // Hood
 static constexpr std::string_view kHoodPosition = "hood/position";
-static constexpr std::string_view kHoodVelocity = "hood/velocity";
 static constexpr std::string_view kHoodSupplyCurrent = "hood/supply_current";
 
 // Intake

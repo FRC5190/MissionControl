@@ -4,11 +4,13 @@
 
 #include "Intake.h"
 
+#include <cstdlib>
 #include <memory>
 #include <string>
 
 #include <imgui.h>
 
+#include "Constants.h"
 #include "Keys.h"
 
 using namespace frc5190;
@@ -43,4 +45,11 @@ void Intake::Display() {
   ImGui::Text("Bridge F Current:     %3.1f A", bridge_f_current);
   ImGui::Text("Feeder Floor Current: %3.1f A", feeder_floor_current);
   ImGui::Text("Feeder Wall Current:  %3.1f A", feeder_wall_current);
+
+  // Check for current discrepancy.
+  static ImVec4 warning_color{1.0f, 0.5f, 0.0f, 1.0f};
+  if (std::abs(bridge_l_current - bridge_f_current) >
+      constants::kGearboxCurrentDiscrepancyThreshold) {
+    ImGui::TextColored(warning_color, "Bridge Gearbox Current Discrepancy!");
+  }
 }
