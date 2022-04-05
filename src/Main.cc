@@ -24,6 +24,7 @@
 #include "Shooter.h"
 #include "Superstructure.h"
 #include "Turret.h"
+#include "Tuning.h"
 
 using namespace frc5190;
 
@@ -38,6 +39,8 @@ static glass::Window* hood_;
 static glass::Window* intake_;
 static glass::Window* climber_;
 static glass::Window* superstructure_;
+
+static glass::Window* tuning_;
 
 static glass::MainMenuBar main_menu_bar_;
 
@@ -75,6 +78,8 @@ void Application(std::string_view save_dir) {
                                         std::make_unique<Climber>(robot_table));
   superstructure_ = window_manager_->AddWindow(
       "Superstructure", std::make_unique<Superstructure>(robot_table));
+  tuning_ = window_manager_->AddWindow("Tuning",
+                                       std::make_unique<Tuning>(robot_table));
 
   // Add menu bar.
   gui::AddLateExecute([] {

@@ -19,12 +19,10 @@ void Intake::Display() {
   // Get sensor values from NT.
   bool lower_sensor = nt_->GetBoolean(keys::kIntakeLowerSensor, false);
   bool upper_sensor = nt_->GetBoolean(keys::kIntakeUpperSensor, false);
-  std::string next_cargo = nt_->GetString(keys::kIntakeNextCargoColor, "None");
 
   // Output sensor values.
   ImGui::Text("Lower Sensor:     %s", lower_sensor ? "true" : "false");
   ImGui::Text("Upper Sensor:     %s", upper_sensor ? "true" : "false");
-  ImGui::Text("Next Cargo Color: %s", next_cargo.c_str());
 
   // Get current values from NT.
   double intake_current = nt_->GetNumber(keys::kIntakeSupplyCurrent, 0);

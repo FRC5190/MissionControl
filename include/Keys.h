@@ -57,8 +57,6 @@ static constexpr std::string_view kHoodSupplyCurrent = "hood/supply_current";
 // Intake
 static constexpr std::string_view kIntakeLowerSensor = "intake/lower_sensor";
 static constexpr std::string_view kIntakeUpperSensor = "intake/upper_sensor";
-static constexpr std::string_view kIntakeNextCargoColor =
-    "intake/next_cargo_color";
 static constexpr std::string_view kIntakeSupplyCurrent =
     "intake/intake_supply_current";
 static constexpr std::string_view kBridgeLSupplyCurrent =
@@ -87,6 +85,10 @@ static constexpr std::string_view kShooterSpeedSetpoint =
     "superstructure/shooter_speed_setpoint";
 static constexpr std::string_view kHoodAngleSetpoint =
     "superstructure/hood_angle_setpoint";
+
+static constexpr std::string_view kSuperstructureNextCargo =
+    "superstructure/next_up_cargo";
+
 static constexpr std::string_view kSuperstructureTurretState =
     "superstructure/turret_state";
 static constexpr std::string_view kSuperstructureShooterState =
@@ -97,5 +99,19 @@ static constexpr std::string_view kSuperstructureFeederState =
     "superstructure/feeder_state";
 static constexpr std::string_view kSuperstructureIntakeState =
     "superstructure/intake_state";
+
+static constexpr std::string_view kSuperstructureTurretAtGoal =
+    "superstructure/turret_at_goal";
+static constexpr std::string_view kSuperstructureShooterAtGoal =
+    "superstructure/shooter_at_goal";
+static constexpr std::string_view kSuperstructureHoodAtGoal =
+    "superstructure/hood_at_goal";
+
+static constexpr std::string_view kSuperstructureTuningShooterSpeed =
+    "superstructure/tuning_shooter_speed";
+static constexpr std::string_view kSuperstructureTuningHoodAngle =
+    "superstructure/tuning_hood_angle";
+static constexpr std::string_view kSuperstructureTune =
+    "superstructure/start_tune";
 }  // namespace keys
 }  // namespace frc5190

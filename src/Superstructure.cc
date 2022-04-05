@@ -23,15 +23,39 @@ void Superstructure::Display() {
       nt_->GetNumber(keys::kShooterSpeedSetpoint, 0);
   double hood_angle_setpoint = nt_->GetNumber(keys::kHoodAngleSetpoint, 0);
 
+  bool turret_at_goal =
+      nt_->GetBoolean(keys::kSuperstructureTurretAtGoal, false);
+  bool shooter_at_goal =
+      nt_->GetBoolean(keys::kSuperstructureShooterAtGoal, false);
+  bool hood_at_goal = nt_->GetBoolean(keys::kSuperstructureHoodAtGoal, false);
+
   // Output setpoints.
-  ImGui::Text("Turret Position Setpoint: %3.3f deg",
-              turret_position_setpoint * 180.0 / wpi::numbers::pi);
-  ImGui::Text("Turret Velocity Setpoint: %3.3f deg/s",
-              turret_velocity_setpoint * 180.0 / wpi::numbers::pi);
-  ImGui::Text("Shooter Speed Setpoint:   %3.3f rpm",
-              shooter_speed_setpoint * 60.0 / 2 / wpi::numbers::pi);
-  ImGui::Text("Hood Angle Setpoint:      %3.3f deg",
-              hood_angle_setpoint * 180.0 / wpi::numbers::pi);
+  static ImVec4 warning_color{1.0f, 0.5f, 0.0f, 1.0f};
+  static ImVec4 good_color{0.0f, 1.0f, 0.0f, 1.0f};
+
+  ImGui::TextColored(turret_at_goal ? good_color : warning_color,
+                     "Turret Position Setpoint: %3.3f deg",
+                     turret_position_setpoint * 180.0 / wpi::numbers::pi);
+  ImGui::TextColored(turret_at_goal ? good_color : warning_color,
+                     "Turret Velocity Setpoint: %3.3f deg/s",
+                     turret_velocity_setpoint * 180.0 / wpi::numbers::pi);
+  ImGui::TextColored(shooter_at_goal ? good_color : warning_color,
+                     "Shooter Speed Setpoint:   %3.3f rpm",
+                     shooter_speed_setpoint * 60.0 / 2 / wpi::numbers::pi);
+  ImGui::TextColored(hood_at_goal ? good_color : warning_color,
+                     "Hood Angle Setpoint:      %3.3f deg",
+                     hood_angle_setpoint * 180.0 / wpi::numbers::pi);
+
+  // Get next cargo information from NT.
+  std::string next_cargo =
+      nt_->GetString(keys::kSuperstructureNextCargo, "None");
+
+  // Output next cargo info.
+  ImGui::Spacing();
+  ImGui::Separator();
+  ImGui::Spacing();
+
+  ImGui::Text("Next Cargo Color: %s", next_cargo.c_str());
 
   // Get state information from NT.
   std::string turret_state =
