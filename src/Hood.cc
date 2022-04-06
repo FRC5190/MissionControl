@@ -12,11 +12,13 @@
 using namespace frc5190;
 
 void Hood::Display() {
-  // Get position and velocity data from NetworkTables.
+  // Get position data from NetworkTables.
+  double raw_enc = nt_->GetNumber(keys::kHoodRawEnc, 0);
   double position = nt_->GetNumber(keys::kHoodPosition, 0);
 
   // Output position and velocity values.
-  ImGui::Text("Position: %3.3f deg", position * 180.0 / wpi::numbers::pi);
+  ImGui::Text("Raw Encoder: %3.3f", raw_enc);
+  ImGui::Text("Position:    %3.3f deg", position * 180.0 / wpi::numbers::pi);
 
   // Get current values from NetworkTables.
   double current = nt_->GetNumber(keys::kHoodSupplyCurrent, 0);

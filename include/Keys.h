@@ -17,6 +17,7 @@ static constexpr std::string_view kAutoSelector = "auto_selector";
 static constexpr std::string_view kRobotStateX = "robot_state/x";
 static constexpr std::string_view kRobotStateY = "robot_state/y";
 static constexpr std::string_view kRobotStateTheta = "robot_state/theta";
+static constexpr std::string_view kRobotStateGoalDistance = "robot_state/goal_distance";
 
 // Drivetrain
 static constexpr std::string_view kDrivetrainLPosition =
@@ -51,6 +52,7 @@ static constexpr std::string_view kShooterFSupplyCurrent =
     "shooter/f_supply_current";
 
 // Hood
+static constexpr std::string_view kHoodRawEnc = "hood/raw_enc";
 static constexpr std::string_view kHoodPosition = "hood/position";
 static constexpr std::string_view kHoodSupplyCurrent = "hood/supply_current";
 

@@ -25,12 +25,15 @@
 #include "Superstructure.h"
 #include "Turret.h"
 #include "Tuning.h"
+#include "RobotState.h"
 
 using namespace frc5190;
 
 namespace gui = wpi::gui;
 
 static std::unique_ptr<glass::WindowManager> window_manager_;
+
+static glass::Window* robot_state_;
 
 static glass::Window* drivetrain_;
 static glass::Window* turret_;
@@ -56,7 +59,7 @@ void Application(std::string_view save_dir) {
 
   // Create global NT instance.
   nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
-  inst.StartClient("localhost");
+  inst.StartClientTeam(5190);
   std::shared_ptr<nt::NetworkTable> robot_table = inst.GetTable("robot");
 
   // Initialize window manager and add views.
@@ -64,6 +67,8 @@ void Application(std::string_view save_dir) {
   window_manager_ = std::make_unique<glass::WindowManager>(storage);
   window_manager_->GlobalInit();
 
+  robot_state_ = window_manager_->AddWindow(
+      "Robot State", std::make_unique<RobotState>(robot_table));
   drivetrain_ = window_manager_->AddWindow(
       "Drivetrain", std::make_unique<Drivetrain>(robot_table));
   turret_ = window_manager_->AddWindow("Turret",
