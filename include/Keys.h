@@ -17,7 +17,8 @@ static constexpr std::string_view kAutoSelector = "auto_selector";
 static constexpr std::string_view kRobotStateX = "robot_state/x";
 static constexpr std::string_view kRobotStateY = "robot_state/y";
 static constexpr std::string_view kRobotStateTheta = "robot_state/theta";
-static constexpr std::string_view kRobotStateGoalDistance = "robot_state/goal_distance";
+static constexpr std::string_view kRobotStateGoalDistance =
+    "robot_state/goal_distance";
 
 // Drivetrain
 static constexpr std::string_view kDrivetrainLPosition =
@@ -57,18 +58,20 @@ static constexpr std::string_view kHoodPosition = "hood/position";
 static constexpr std::string_view kHoodSupplyCurrent = "hood/supply_current";
 
 // Intake
-static constexpr std::string_view kIntakeLowerSensor = "intake/lower_sensor";
-static constexpr std::string_view kIntakeUpperSensor = "intake/upper_sensor";
 static constexpr std::string_view kIntakeSupplyCurrent =
     "intake/intake_supply_current";
 static constexpr std::string_view kBridgeLSupplyCurrent =
     "intake/bridge_l_supply_current";
 static constexpr std::string_view kBridgeFSupplyCurrent =
     "intake/bridge_f_supply_current";
+
+// Feeder
+static constexpr std::string_view kFeederLowerSensor = "feeder/lower_sensor";
+static constexpr std::string_view kFeederUpperSensor = "feeder/upper_sensor";
 static constexpr std::string_view kFeederFloorSupplyCurrent =
-    "intake/feeder_floor_supply_current";
+    "feeder/floor_supply_current";
 static constexpr std::string_view kFeederWallSupplyCurrent =
-    "intake/feeder_wall_supply_current";
+    "feeder/wall_supply_current";
 
 // Climber
 static constexpr std::string_view kClimberLPosition = "climber/l_position";

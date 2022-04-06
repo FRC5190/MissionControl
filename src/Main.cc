@@ -21,11 +21,11 @@
 #include "Drivetrain.h"
 #include "Hood.h"
 #include "Intake.h"
+#include "RobotState.h"
 #include "Shooter.h"
 #include "Superstructure.h"
-#include "Turret.h"
 #include "Tuning.h"
-#include "RobotState.h"
+#include "Turret.h"
 
 using namespace frc5190;
 

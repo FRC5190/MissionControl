@@ -17,8 +17,8 @@ using namespace frc5190;
 
 void Intake::Display() {
   // Get sensor values from NT.
-  bool lower_sensor = nt_->GetBoolean(keys::kIntakeLowerSensor, false);
-  bool upper_sensor = nt_->GetBoolean(keys::kIntakeUpperSensor, false);
+  bool lower_sensor = nt_->GetBoolean(keys::kFeederLowerSensor, false);
+  bool upper_sensor = nt_->GetBoolean(keys::kFeederLowerSensor, false);
 
   // Output sensor values.
   ImGui::Text("Lower Sensor:     %s", lower_sensor ? "true" : "false");
