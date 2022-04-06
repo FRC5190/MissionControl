@@ -16,7 +16,7 @@ void Tuning::Display() {
   ImGui::SetNextItemWidth(ImGui::GetFontSize() * 8);
   ImGui::InputInt("Shooter Speed (rpm)", &shooter_rpm_, 0);
   ImGui::SetNextItemWidth(ImGui::GetFontSize() * 8);
-  ImGui::InputDouble("Hood Angle (deg)", &hood_angle_deg_);
+  ImGui::InputDouble("Hood Angle (deg)", &hood_angle_deg_, 0, 0, "%.1f");
 
   // Show button to start and stop tuning.
   bool tuning = nt_->GetBoolean(keys::kSuperstructureTune, false);

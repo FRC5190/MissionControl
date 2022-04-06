@@ -22,5 +22,12 @@ void RobotState::Display() {
   ImGui::Text("Robot X:       %3.3f ft", x * 3.28084);
   ImGui::Text("Robot Y:       %3.3f ft", y * 3.28084);
   ImGui::Text("Robot Theta:   %3.3f deg", theta * 180 / wpi::numbers::pi);
-  ImGui::Text("Goal Distance: %3.3f ft", goal_distance * 3.28084);
+
+  ImGui::Spacing();
+  ImGui::Separator();
+  ImGui::Spacing();
+
+  ImGui::Text("Goal Distance:");
+  ImGui::Text("  %3.3f ft", goal_distance * 3.28084);
+  ImGui::Text("  %3.3f m", goal_distance);
 }

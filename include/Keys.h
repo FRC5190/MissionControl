@@ -68,6 +68,8 @@ static constexpr std::string_view kBridgeFSupplyCurrent =
 // Feeder
 static constexpr std::string_view kFeederLowerSensor = "feeder/lower_sensor";
 static constexpr std::string_view kFeederUpperSensor = "feeder/upper_sensor";
+static constexpr std::string_view kFeederUpperSensorColor =
+    "feeder/upper_sensor_color";
 static constexpr std::string_view kFeederFloorSupplyCurrent =
     "feeder/floor_supply_current";
 static constexpr std::string_view kFeederWallSupplyCurrent =

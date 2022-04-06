@@ -17,7 +17,7 @@ class Tuning : public glass::View {
 
  private:
   std::shared_ptr<nt::NetworkTable> nt_;
-  int shooter_rpm_ = 0;
-  double hood_angle_deg_ = 0;
+  int shooter_rpm_ = 2540;
+  double hood_angle_deg_ = 13.0;
 };
 }  // namespace frc5190
