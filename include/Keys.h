@@ -66,6 +66,10 @@ static constexpr std::string_view kBridgeFSupplyCurrent =
     "intake/bridge_f_supply_current";
 
 // Feeder
+static constexpr std::string_view kFeederLowerSensorProx =
+    "feeder/lower_sensor_prox";
+static constexpr std::string_view kFeederUpperSensorProx =
+    "feeder/upper_sensor_prox";
 static constexpr std::string_view kFeederLowerSensor = "feeder/lower_sensor";
 static constexpr std::string_view kFeederUpperSensor = "feeder/upper_sensor";
 static constexpr std::string_view kFeederUpperSensorColor =
@@ -78,6 +82,10 @@ static constexpr std::string_view kFeederWallSupplyCurrent =
 // Climber
 static constexpr std::string_view kClimberLPosition = "climber/l_position";
 static constexpr std::string_view kClimberRPosition = "climber/r_position";
+static constexpr std::string_view kClimberLPivotSensor =
+    "climber/l_pivot_sensor";
+static constexpr std::string_view kClimberRPivotSensor =
+    "climber/r_pivot_sensor";
 static constexpr std::string_view kClimberLSupplyCurrent =
     "climber/l_supply_current";
 static constexpr std::string_view kClimberRSupplyCurrent =

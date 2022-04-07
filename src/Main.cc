@@ -19,8 +19,10 @@
 
 #include "Climber.h"
 #include "Drivetrain.h"
+#include "General.h"
 #include "Hood.h"
 #include "Intake.h"
+#include "Plot.h"
 #include "RobotState.h"
 #include "Shooter.h"
 #include "Superstructure.h"
@@ -33,6 +35,7 @@ namespace gui = wpi::gui;
 
 static std::unique_ptr<glass::WindowManager> window_manager_;
 
+static glass::Window* general_;
 static glass::Window* robot_state_;
 
 static glass::Window* drivetrain_;
@@ -44,6 +47,7 @@ static glass::Window* climber_;
 static glass::Window* superstructure_;
 
 static glass::Window* tuning_;
+static glass::Window* plot_;
 
 static glass::MainMenuBar main_menu_bar_;
 
@@ -68,6 +72,9 @@ void Application(std::string_view save_dir) {
   window_manager_ = std::make_unique<glass::WindowManager>(storage);
   window_manager_->GlobalInit();
 
+  general_ = window_manager_->AddWindow("General",
+                                        std::make_unique<General>(robot_table));
+
   robot_state_ = window_manager_->AddWindow(
       "Robot State", std::make_unique<RobotState>(robot_table));
   drivetrain_ = window_manager_->AddWindow(
@@ -86,12 +93,15 @@ void Application(std::string_view save_dir) {
       "Superstructure", std::make_unique<Superstructure>(robot_table));
   tuning_ = window_manager_->AddWindow("Tuning",
                                        std::make_unique<Tuning>(robot_table));
+  plot_ =
+      window_manager_->AddWindow("Plot", std::make_unique<Plot>(robot_table));
 
   // Add menu bar.
   gui::AddLateExecute([] {
     ImGui::BeginMainMenuBar();
     main_menu_bar_.WorkspaceMenu();
     gui::EmitViewMenu();
+    window_manager_->DisplayMenu();
     ImGui::EndMainMenuBar();
   });
 

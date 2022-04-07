@@ -11,13 +11,17 @@
 using namespace frc5190;
 
 void Climber::Display() {
-  // Get position values from NT.
+  // Get position and pivot values from NT.
   double l_position = nt_->GetNumber(keys::kClimberLPosition, 0);
   double r_position = nt_->GetNumber(keys::kClimberRPosition, 0);
+  bool l_pivot = nt_->GetBoolean(keys::kClimberLPivotSensor, false);
+  bool r_pivot = nt_->GetBoolean(keys::kClimberRPivotSensor, false);
 
-  // Output position values.
+  // Output position and pivot values.
   ImGui::Text("L Position: %3.3f in", l_position * 39.3701);
   ImGui::Text("R Position: %3.3f in", r_position * 39.3701);
+  ImGui::Text("L Pivot:    %s", l_pivot ? "true" : "false");
+  ImGui::Text("R Pivot:    %s", r_pivot ? "true" : "false");
 
   // Get current values from NT.
   double l_current = nt_->GetNumber(keys::kClimberLSupplyCurrent, 0);

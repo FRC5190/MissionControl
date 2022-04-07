@@ -17,11 +17,16 @@ using namespace frc5190;
 
 void Intake::Display() {
   // Get sensor values from NT.
+  int lower_sensor_prox = nt_->GetNumber(keys::kFeederLowerSensorProx, 0);
+  int upper_sensor_prox = nt_->GetNumber(keys::kFeederUpperSensorProx, 0);
   bool lower_sensor = nt_->GetBoolean(keys::kFeederLowerSensor, false);
-  bool upper_sensor = nt_->GetBoolean(keys::kFeederLowerSensor, false);
-  std::string upper_sensor_color = nt_->GetString(keys::kFeederUpperSensorColor, "");
+  bool upper_sensor = nt_->GetBoolean(keys::kFeederUpperSensor, false);
+  std::string upper_sensor_color =
+      nt_->GetString(keys::kFeederUpperSensorColor, "");
 
   // Output sensor values.
+  ImGui::Text("Lower Sensor Prox:  %i", lower_sensor_prox);
+  ImGui::Text("Upper Sensor Prox:  %i", upper_sensor_prox);
   ImGui::Text("Lower Sensor:       %s", lower_sensor ? "true" : "false");
   ImGui::Text("Upper Sensor:       %s", upper_sensor ? "true" : "false");
   ImGui::Text("Upper Sensor Color: %s", upper_sensor_color.c_str());
