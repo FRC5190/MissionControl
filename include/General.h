@@ -5,17 +5,25 @@
 #pragma once
 
 #include <memory>
+#include "Keys.h"
+#include "fmt/core.h"
 
 #include <glass/View.h>
 #include <networktables/NetworkTable.h>
+#include <glass/networktables/NTStringChooser.h>
+#include <networktables/NetworkTableInstance.h>
 
 namespace frc5190 {
 class General : public glass::View {
  public:
-  explicit General(std::shared_ptr<nt::NetworkTable> nt) : nt_{nt} {}
+  explicit General(std::shared_ptr<nt::NetworkTable> nt)
+      : nt_{nt},
+        string_chooser_model_(nt_->GetInstance().GetHandle(),
+                              fmt::format("robot/{}", keys::kAutoSelector)) {}
   void Display() override;
 
  private:
   std::shared_ptr<nt::NetworkTable> nt_;
+  glass::NTStringChooserModel string_chooser_model_;
 };
 }  // namespace frc5190

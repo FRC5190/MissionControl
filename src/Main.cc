@@ -16,18 +16,22 @@
 #include <networktables/NetworkTableInstance.h>
 #include <networktables/TableEntryListener.h>
 #include <wpigui.h>
+#include <glass/networktables/NTField2D.h>
 
 #include "Climber.h"
 #include "Drivetrain.h"
 #include "General.h"
 #include "Hood.h"
 #include "Intake.h"
+#include "Keys.h"
 #include "Plot.h"
 #include "RobotState.h"
 #include "Shooter.h"
 #include "Superstructure.h"
 #include "Tuning.h"
 #include "Turret.h"
+#include "fmt/core.h"
+#include "glass/other/Field2D.h"
 
 using namespace frc5190;
 
@@ -48,6 +52,7 @@ static glass::Window* superstructure_;
 
 static glass::Window* tuning_;
 static glass::Window* plot_;
+static glass::Window* field_;
 
 static glass::MainMenuBar main_menu_bar_;
 
@@ -66,6 +71,9 @@ void Application(std::string_view save_dir) {
   inst.StartClient("localhost");
   // inst.StartClientTeam(5190);
   std::shared_ptr<nt::NetworkTable> robot_table = inst.GetTable("robot");
+
+  // Create field model.
+  glass::NTField2DModel field_model{fmt::format("/robot/{}", keys::kField)};
 
   // Initialize window manager and add views.
   auto& storage = glass::GetStorageRoot().GetChild("Mission Control");
@@ -95,6 +103,8 @@ void Application(std::string_view save_dir) {
                                        std::make_unique<Tuning>(robot_table));
   plot_ =
       window_manager_->AddWindow("Plot", std::make_unique<Plot>(robot_table));
+  field_ = window_manager_->AddWindow(
+      "Field", std::make_unique<glass::Field2DView>(&field_model));
 
   // Add menu bar.
   gui::AddLateExecute([] {

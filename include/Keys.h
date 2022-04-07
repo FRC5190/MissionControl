@@ -12,6 +12,7 @@ namespace keys {
 static constexpr std::string_view kClimbMode = "climb_mode";
 static constexpr std::string_view kAirPressure = "air_pressure";
 static constexpr std::string_view kAutoSelector = "auto_selector";
+static constexpr std::string_view kField = "field";
 
 // Robot State
 static constexpr std::string_view kRobotStateX = "robot_state/x";

@@ -8,6 +8,7 @@
 #include <networktables/NetworkTableInstance.h>
 
 #include "Keys.h"
+#include "glass/other/StringChooser.h"
 
 using namespace frc5190;
 
@@ -33,4 +34,12 @@ void General::Display() {
 
   ImGui::Text("Climb Mode:   %s", climb_mode ? "true" : "false");
   ImGui::Text("Air Pressure: %.3f psi", air_pressure);
+
+  // Display autonomous chooser.
+  ImGui::Spacing();
+  ImGui::Separator();
+  ImGui::Spacing();
+
+  ImGui::Text("Autonomous Selector");
+  glass::DisplayStringChooser(&string_chooser_model_);
 }
