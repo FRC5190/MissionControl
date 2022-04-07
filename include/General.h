@@ -5,13 +5,14 @@
 #pragma once
 
 #include <memory>
-#include "Keys.h"
-#include "fmt/core.h"
 
+#include <fmt/core.h>
 #include <glass/View.h>
-#include <networktables/NetworkTable.h>
 #include <glass/networktables/NTStringChooser.h>
+#include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableInstance.h>
+
+#include "Keys.h"
 
 namespace frc5190 {
 class General : public glass::View {

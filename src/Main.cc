@@ -6,17 +6,19 @@
 #include <iostream>
 #include <memory>
 
+#include <fmt/core.h>
 #include <glass/Context.h>
 #include <glass/MainMenuBar.h>
 #include <glass/Storage.h>
 #include <glass/Window.h>
 #include <glass/WindowManager.h>
+#include <glass/networktables/NTField2D.h>
+#include <glass/other/Field2D.h>
 #include <imgui.h>
 #include <networktables/NetworkTableEntry.h>
 #include <networktables/NetworkTableInstance.h>
 #include <networktables/TableEntryListener.h>
 #include <wpigui.h>
-#include <glass/networktables/NTField2D.h>
 
 #include "Climber.h"
 #include "Drivetrain.h"
@@ -30,8 +32,6 @@
 #include "Superstructure.h"
 #include "Tuning.h"
 #include "Turret.h"
-#include "fmt/core.h"
-#include "glass/other/Field2D.h"
 
 using namespace frc5190;
 

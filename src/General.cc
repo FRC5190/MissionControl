@@ -4,11 +4,11 @@
 
 #include "General.h"
 
+#include <glass/other/StringChooser.h>
 #include <imgui.h>
 #include <networktables/NetworkTableInstance.h>
 
 #include "Keys.h"
-#include "glass/other/StringChooser.h"
 
 using namespace frc5190;
 
