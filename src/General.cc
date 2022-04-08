@@ -40,6 +40,7 @@ void General::Display() {
   ImGui::Separator();
   ImGui::Spacing();
 
+  string_chooser_model_.Update();
   ImGui::Text("Autonomous Selector");
   glass::DisplayStringChooser(&string_chooser_model_);
 }

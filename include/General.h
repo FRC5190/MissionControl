@@ -20,7 +20,7 @@ class General : public glass::View {
   explicit General(std::shared_ptr<nt::NetworkTable> nt)
       : nt_{nt},
         string_chooser_model_(nt_->GetInstance().GetHandle(),
-                              fmt::format("robot/{}", keys::kAutoSelector)) {}
+                              fmt::format("/robot/{}", keys::kAutoSelector)) {}
   void Display() override;
 
  private:

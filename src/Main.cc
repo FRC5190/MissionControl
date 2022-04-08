@@ -73,7 +73,8 @@ void Application(std::string_view save_dir) {
   std::shared_ptr<nt::NetworkTable> robot_table = inst.GetTable("robot");
 
   // Create field model.
-  glass::NTField2DModel field_model{fmt::format("/robot/{}", keys::kField)};
+  glass::NTField2DModel field_model{robot_table->GetInstance().GetHandle(),
+                                    fmt::format("/robot/{}", keys::kField)};
 
   // Initialize window manager and add views.
   auto& storage = glass::GetStorageRoot().GetChild("Mission Control");
@@ -107,12 +108,14 @@ void Application(std::string_view save_dir) {
       "Field", std::make_unique<glass::Field2DView>(&field_model));
 
   // Add menu bar.
-  gui::AddLateExecute([] {
+  gui::AddLateExecute([&] {
     ImGui::BeginMainMenuBar();
     main_menu_bar_.WorkspaceMenu();
     gui::EmitViewMenu();
     window_manager_->DisplayMenu();
     ImGui::EndMainMenuBar();
+
+    field_model.Update();
   });
 
   // Initialize and run GUI.
