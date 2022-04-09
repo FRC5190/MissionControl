@@ -46,6 +46,17 @@ void Superstructure::Display() {
                      "Hood Angle Setpoint:      %3.3f deg",
                      hood_angle_setpoint * 180.0 / wpi::numbers::pi);
 
+  // Get distance information from NT.
+  double turret_to_goal_distance =
+      nt_->GetNumber(keys::kTurretToGoalDistance, 0);
+
+  // Output distance information.
+  ImGui::Spacing();
+  ImGui::Separator();
+  ImGui::Spacing();
+
+  ImGui::Text("Turret to Goal Distance: %.3f m", turret_to_goal_distance);
+
   // Get next cargo information from NT.
   std::string next_cargo =
       nt_->GetString(keys::kSuperstructureNextCargo, "None");

@@ -68,8 +68,8 @@ void Application(std::string_view save_dir) {
 
   // Create global NT instance.
   nt::NetworkTableInstance inst = nt::NetworkTableInstance::GetDefault();
-  inst.StartClient("localhost");
-  // inst.StartClientTeam(5190);
+  // inst.StartClient("localhost");
+  inst.StartClientTeam(5190);
   std::shared_ptr<nt::NetworkTable> robot_table = inst.GetTable("robot");
 
   // Create field model.

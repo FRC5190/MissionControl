@@ -129,5 +129,8 @@ static constexpr std::string_view kSuperstructureTuningHoodAngle =
     "superstructure/tuning_hood_angle";
 static constexpr std::string_view kSuperstructureTune =
     "superstructure/start_tune";
+
+static constexpr std::string_view kTurretToGoalDistance =
+    "superstructure/turret_to_goal_distance";
 }  // namespace keys
 }  // namespace frc5190
